@@ -31,10 +31,12 @@ namespace Fractal
         {
             context.Logger.LogLine("Get Request\n");
 
+            var iterations = int.Parse(request.QueryStringParameters["iterations"]);
+
             var response = new APIGatewayProxyResponse
             {
                 StatusCode = (int)HttpStatusCode.OK,
-                Body = "Hello AWS Serverless",
+                Body = $"Hello Fractal, iterations = {iterations}",
                 Headers = new Dictionary<string, string> { { "Content-Type", "text/plain" } }
             };
 
